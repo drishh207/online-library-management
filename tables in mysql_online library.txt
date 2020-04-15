@@ -1,0 +1,135 @@
+mysql> desc books;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| bookname | varchar(60) | YES  |     | NULL    |       |
+| bookid   | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc myorder;
++------------+-------------+------+-----+------------------+-------+
+| Field      | Type        | Null | Key | Default          | Extra |
++------------+-------------+------+-----+------------------+-------+
+| username   | varchar(40) | YES  |     | NULL             |       |
+| address    | varchar(60) | YES  |     | NULL             |       |
+| pincode    | varchar(10) | YES  |     | NULL             |       |
+| doj        | varchar(20) | YES  |     | NULL             |       |
+| orderno    | varchar(20) | YES  |     | NULL             |       |
+| membership | varchar(20) | YES  |     | NULL             |       |
+| bookname1  | varchar(40) | YES  |     | NULL             |       |
+| bookid1    | varchar(10) | YES  |     | NULL             |       |
+| bookname2  | varchar(40) | YES  |     | no record        |       |
+| bookid2    | varchar(10) | YES  |     | no record        |       |
+| bookname3  | varchar(40) | YES  |     | no record        |       |
+| bookid3    | varchar(10) | YES  |     | no record        |       |
+| status     | varchar(20) | YES  |     | issued           |       |
+| returndate | varchar(20) | YES  |     | not yet returned |       |
++------------+-------------+------+-----+------------------+-------+
+14 rows in set (0.00 sec)
+
+mysql> desc login;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(40) | NO   | PRI | NULL    |       |
+| password | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+mysql> desc info;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| username   | varchar(40)  | NO   | PRI | NULL    |       |
+| name       | varchar(20)  | YES  |     | NULL    |       |
+| birthday   | varchar(20)  | YES  |     | NULL    |       |
+| gender     | varchar(10)  | YES  |     | NULL    |       |
+| mobileno   | varchar(20)  | YES  |     | NULL    |       |
+| address    | varchar(100) | YES  |     | NULL    |       |
+| city       | varchar(20)  | YES  |     | NULL    |       |
+| state      | varchar(20)  | YES  |     | NULL    |       |
+| country    | varchar(20)  | YES  |     | NULL    |       |
+| pincode    | varchar(20)  | YES  |     | NULL    |       |
+| membership | varchar(20)  | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> select * from books;
++-------------------------------------------+--------+
+| bookname                                  | bookid |
++-------------------------------------------+--------+
+| the mountain of adventure                 | B001   |
+| the ship of adventure                     | B002   |
+| the valley of adventure                   | B003   |
+| the river of adventure                    | B004   |
+| the sea of adventure                      | B005   |
+| the castle of adventure                   | B006   |
+| the circus of adventure                   | B007   |
+| the island of adventure                   | B008   |
+| harry potter and the deathly hallows      | B009   |
+| harry potter and the chamber of secrets   | B010   |
+| harry potter and the prisoner of azkaban  | B011   |
+| harry potter and the philosophers stone   | B012   |
+| harry potter and the goblet of fire       | B013   |
+| harry potter and the order of the phoenix | B014   |
+| harry potter and the half blood prince    | B015   |
+| the diary of a young girl                 | B016   |
+| Mohandas K. gandhi autobiography          | B017   |
+| Delhi agra and jaipur                     | B018   |
+| panchtantra stories                       | B019   |
+| essential india travel guide              | B020   |
+| twilight                                  | B021   |
+| cinder                                    | B022   |
++-------------------------------------------+--------+
+22 rows in set (0.00 sec)
+
+mysql> select * from info;
++----------+---------+-----------+--------+------------+-----------+------------
++-------------+---------+---------+------------+
+| username | name    | birthday  | gender | mobileno   | address   | city
+| state       | country | pincode | membership |
++----------+---------+-----------+--------+------------+-----------+------------
++-------------+---------+---------+------------+
+| abc      | drishti | 1948-4-02 | Female | 12345678   | ujhtg     | Bangalore
+| Tamil Nadu  | India   | 41045   | NULL       |
+| abc1     | drishti | 1948-3-02 | Female | 1124564646 | gfdh      | Chennai
+| Tamil Nadu  | India   | 411045  |            |
+| abc2     | drishti | 1948-2-02 | Female | 12345678   | harileela | Chennai
+| Tamil Nadu  | India   | 411045  | Platinum   |
+| pinakin  | Drishti | 2000-7-20 | Female | 123456789  | qqqqqqq   | Pune
+| Maharashtra | India   | 411045  | Gold       |
++----------+---------+-----------+--------+------------+-----------+------------
++-------------+---------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from login;
++----------+------------+
+| username | password   |
++----------+------------+
+| abc      | monamona   |
+| abc1     | monamona   |
+| abc2     | monamona   |
+| pinakin  | harileela1 |
++----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from myorder;
++----------+--------------------------------+---------+------------+-----------+
+------------+---------------------------+---------+-----------------------------
+---------+---------+-----------+-----------+--------+------------------+
+| username | address                        | pincode | doj        | orderno   |
+ membership | bookname1                 | bookid1 | bookname2
+         | bookid2 | bookname3 | bookid3   | status | returndate       |
++----------+--------------------------------+---------+------------+-----------+
+------------+---------------------------+---------+-----------------------------
+---------+---------+-----------+-----------+--------+------------------+
+| pinakin  | qqqqqqq
+Pune,Maharashtra
+India | 411045  | 2018-01-16 | 667511103 | Gold       | The Mountain of Adventur
+e | B001    | Harry potter and the Deathly hallows | B009    | no record | no re
+cord | issued | not yet returned |
++----------+--------------------------------+---------+------------+-----------+
+------------+---------------------------+---------+-----------------------------
+---------+---------+-----------+-----------+--------+------------------+
+1 row in set (0.00 sec)
+
